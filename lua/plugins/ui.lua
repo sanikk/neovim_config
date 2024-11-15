@@ -1,6 +1,4 @@
 return {
-  { 'nvim-tree/nvim-web-devicons', version = false },
-
   {
     'romgrk/barbar.nvim',
     init = function()
