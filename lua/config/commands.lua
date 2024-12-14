@@ -11,3 +11,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Command to load C++ Qt snippets
+vim.api.nvim_create_user_command('LoadCppQtSnippets', function()
+  require('luasnip.loaders.from_lua').load { paths = { '~/.config/nvim/snippets/cpp-qt.lua' } }
+  print 'C++ Qt snippets loaded!'
+end, { desc = 'Load C++ Qt snippets' })
