@@ -1,3 +1,4 @@
+local vimkey = vim.keymap.set
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -34,3 +35,27 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- buffers
 vim.keymap.set('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
 vim.keymap.set('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
+
+-- DAP keymaps
+do
+  local dap = require 'dap'
+
+  local mappings = {
+    { mode = 'n', lhs = '<leader>db', rhs = dap.toggle_breakpoint, desc = 'Toggle Breakpoint' },
+    { mode = 'n', lhs = '<leader>dc', rhs = dap.continue, desc = 'Continue' },
+    { mode = 'n', lhs = '<leader>di', rhs = dap.step_into, desc = 'Step Into' },
+    { mode = 'n', lhs = '<leader>do', rhs = dap.step_over, desc = 'Step Over' },
+    {
+      mode = 'n',
+      lhs = '<leader>dr',
+      rhs = function()
+        dap.repl.toggle()
+      end,
+      desc = 'Toggle REPL',
+    },
+  }
+
+  for _, map in ipairs(mappings) do
+    vimkey(map.mode, map.lhs, map.rhs, { desc = map.desc })
+  end
+end

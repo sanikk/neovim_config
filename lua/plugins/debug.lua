@@ -11,7 +11,7 @@ return {
       -- Configure lldb adapter for C++ debugging
       dap.adapters.lldb = {
         type = 'executable',
-        command = '/usr/bin/lldb-vscode', -- Adjust path if needed
+        command = '/usr/bin/lldb-dap', -- Adjust path if needed
         name = 'lldb',
       }
       dap.configurations.cpp = {

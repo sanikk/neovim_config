@@ -1,5 +1,4 @@
 require 'config.options'
-require 'config.keymaps'
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -60,6 +59,9 @@ require('lazy').setup({
     },
   },
 })
+
 require 'config.commands'
+-- moved this here so all the plugins are loaded.
+require 'config.keymaps'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
