@@ -70,3 +70,12 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Enable syntax-based folding
+vim.o.foldmethod = 'syntax'
+
+-- Optional: Show all folds by default
+vim.o.foldlevel = 99
+
+-- Enable folding in general
+vim.o.foldenable = true
