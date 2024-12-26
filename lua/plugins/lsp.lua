@@ -185,7 +185,20 @@ return {
           end,
         },
         -- gopls = {},
-        -- pyright = {},
+        pyright = {
+
+          on_attach = function(client, bufnr)
+            -- Optional: Custom on_attach logic                        --
+            print('pyright attached to buffer ' .. bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+          before_init = function(_, config)
+            local venv_path = vim.fn.trim(vim.fn.system 'poetry env info --path')
+            config.settings.python.pythonPath = table.concat({ venv_path, 'bin', 'python' }, '/')
+            --config.settings.python.pythonPath = require('lspconfig.util').table.concat(venv_path, 'bin', 'python')
+          end,
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --

@@ -79,3 +79,13 @@ vim.o.foldlevel = 99
 
 -- Enable folding in general
 vim.o.foldenable = true
+
+-- sane defaults
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
+
+-- for bufferline.nvim
+-- this is supposed to enable colors
+vim.opt.termguicolors = true

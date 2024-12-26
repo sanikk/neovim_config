@@ -28,10 +28,20 @@ vim.api.nvim_create_autocmd({ 'ModeChanged' }, {
   end,
 })
 
--- Autoformatter on save
+-- Autoformatter on save, for non-python files
 vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function()
-    vim.lsp.buf.format { async = false }
+    if vim.bo.filetype ~= 'python' then
+      vim.lsp.buf.format { async = false }
+    end
+  end,
+})
+
+-- Autoformatter for Python files using Conform
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.py',
+  callback = function()
+    require('conform').format { async = false }
   end,
 })
 
