@@ -89,3 +89,8 @@ vim.opt.softtabstop = 4
 -- for bufferline.nvim
 -- this is supposed to enable colors
 vim.opt.termguicolors = true
+
+-- add mermaid support to Markdown Preview plugin, in plugins/markdown.lua
+vim.g.mkdp_preview_options = {
+  mermaid = true,
+}
