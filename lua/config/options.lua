@@ -72,7 +72,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Enable syntax-based folding
-vim.o.foldmethod = 'syntax'
+vim.o.foldmethod = 'manual'
 
 -- Optional: Show all folds by default
 vim.o.foldlevel = 99
@@ -94,3 +94,6 @@ vim.opt.termguicolors = true
 vim.g.mkdp_preview_options = {
   mermaid = true,
 }
+
+-- some highlight test
+-- vim.api.nvim_set_hl(0, TabLine, { fg = '#ffffff' })

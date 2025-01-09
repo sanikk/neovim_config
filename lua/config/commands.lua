@@ -62,6 +62,20 @@ vim.api.nvim_create_user_command('LoadCppQtSnippets', function()
   print 'C++ Qt snippets loaded!'
 end, { desc = 'Load C++ Qt snippets' })
 
+-- flask snippet loader
+vim.api.nvim_create_user_command('LoadFlaskSnippets', function()
+  local flask_snippets = dofile(vim.fn.expand '~/.config/nvim/snippets/flask.lua')
+  require('luasnip').add_snippets('python', flask_snippets)
+  print 'Python Flask snippets loaded!'
+end, { desc = 'Load Python Flask snippets' })
+
+-- Command to load C++ Qt snippets
+-- vim.api.nvim_create_user_command('LoadFlaskSnippets', function()
+--   require('luasnip.loaders.from_lua').load { paths = { '~/.config/nvim/snippets/flask.lua' } }
+--   print 'Python Flask snippets loaded!'
+--   print(vim.inspect(require('luasnip').snippets))
+-- end, { desc = 'Load Python Flask snippets' })
+
 -- color border between neotree and code according to mode
 -- local function update_neotree_border_color()
 --   local mode = vim.fn.mode()

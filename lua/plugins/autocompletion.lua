@@ -42,7 +42,7 @@ return {
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
-      require('luasnip.loaders.from_lua').lazy_load { paths = { vim.fn.expand '~/.config/nvim/lua/snippets/' } }
+      -- require('luasnip.loaders.from_lua').lazy_load()
 
       cmp.setup {
         snippet = {
@@ -100,7 +100,7 @@ return {
               luasnip.jump(-1)
             end
           end, { 'i', 's' }),
-          require('luasnip.loaders.from_lua').lazy_load { paths = { '~/.config/nvim/lua/snippets/' } },
+          require('luasnip.loaders.from_lua').lazy_load(),
           -- `friendly-snippets` contains a variety of premade snippets.
 
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
