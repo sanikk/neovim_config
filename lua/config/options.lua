@@ -95,5 +95,9 @@ vim.g.mkdp_preview_options = {
   mermaid = true,
 }
 
+-- disable swap files, to get rid of the recover buffer spam
+vim.opt.swapfile = false
+vim.opt.hidden = true
+
 -- some highlight test
 -- vim.api.nvim_set_hl(0, TabLine, { fg = '#ffffff' })
