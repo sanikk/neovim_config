@@ -63,18 +63,16 @@ return {
                 style = 'deep',
                 colors = {
                     deeppurple = '#913386',
-                    white = '#efeff0',
+                    -- white = '#efeff0',
+                    white = '#ffffff',
                     wellofyellow = '#c4ac41',
                 },
                 highlights = {
-                    -- Comment = { fg = '$white' },
-                    -- TabLineFill = { fg = '$deeppurple' },
-                    --           -- For TreeSitter comments
-                    --           -- For LSP test
-                    -- treesitter = {
-                    --     TSComment = { fg = '$deeppurple' },
-                    -- },
+                    ['@lsp.type.comment'] = { fg = '#bbbbbb', italic = true },
+                    ['@lsp.type.comment.lua'] = { fg = '#bbbbbb', italic = true }, -- If you want Lua-specific override
+                    ['Comment'] = { fg = '#bbbbbb', italic = true },     -- Ensures consistency
                 },
+                --         highlights = {},
             }
             require('onedark').load()
         end,
