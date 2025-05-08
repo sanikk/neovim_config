@@ -14,8 +14,8 @@ return {
       },
     }
 
-    -- vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>', { silent = true })
-    -- vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>', { silent = true })
+    vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>', { silent = true })
+    vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>', { silent = true })
     --
     -- vim.keymap.set('n', '
     --     { '<leader>bd', '<cmd>bdelete<cr>',            desc = 'Close current buffer' },
