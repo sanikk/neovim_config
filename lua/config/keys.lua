@@ -1,4 +1,3 @@
-local vimkey = vim.keymap.set
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -32,34 +31,8 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- buffers
--- original setup
--- vim.keymap.set('n', '<S-h>', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
--- vim.keymap.set('n', '<S-l>', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
--- modified for BufferLine to use visible order
-vim.keymap.set('n', '<S-h>', '<cmd>BufferLineCyclePrev<cr>', { desc = 'Prev Buffer' })
-vim.keymap.set('n', '<S-l>', '<cmd>BufferLineCycleNext<cr>', { desc = 'Next Buffer' })
-
--- DAP keymaps
-do
-  local dap = require 'dap'
-
-  local mappings = {
-    { mode = 'n', lhs = '<leader>db', rhs = dap.toggle_breakpoint, desc = 'Toggle Breakpoint' },
-    { mode = 'n', lhs = '<leader>dc', rhs = dap.continue, desc = 'Continue' },
-    { mode = 'n', lhs = '<leader>di', rhs = dap.step_into, desc = 'Step Into' },
-    { mode = 'n', lhs = '<leader>do', rhs = dap.step_over, desc = 'Step Over' },
-    {
-      mode = 'n',
-      lhs = '<leader>dr',
-      rhs = function()
-        dap.repl.toggle()
-      end,
-      desc = 'Toggle REPL',
-    },
-  }
-
-  for _, map in ipairs(mappings) do
-    vimkey(map.mode, map.lhs, map.rhs, { desc = map.desc })
-  end
-end
+-- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
+-- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
+-- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
+-- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
+-- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })

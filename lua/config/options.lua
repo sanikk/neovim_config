@@ -29,7 +29,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
+  vim.opt.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -49,7 +49,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
--- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
@@ -71,33 +70,10 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- Enable syntax-based folding
-vim.o.foldmethod = 'manual'
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+-- See `:help 'confirm'`
+vim.opt.confirm = true
 
--- Optional: Show all folds by default
-vim.o.foldlevel = 99
-
--- Enable folding in general
-vim.o.foldenable = true
-
--- sane defaults
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.softtabstop = 4
-
--- for bufferline.nvim
--- this is supposed to enable colors
+-- Enable colors (needed by at least bufferline)
 vim.opt.termguicolors = true
-
--- add mermaid support to Markdown Preview plugin, in plugins/markdown.lua
-vim.g.mkdp_preview_options = {
-    mermaid = true,
-}
-
--- disable swap files, to get rid of the recover buffer spam
-vim.opt.swapfile = false
-vim.opt.hidden = true
-
--- some highlight test
--- vim.api.nvim_set_hl(0, TabLine, { fg = '#ffffff' })
